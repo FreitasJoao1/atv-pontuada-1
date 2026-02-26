@@ -6,22 +6,29 @@
     box-sizing: border-boxer;
 }
 
-   body{
-        line-height: 1;
-        padding: 30px;
-        font-family: Arial, sans-serif;
-        background-image: url("assets/gemini\ imagem.png");
+body{
+    line-height: 1;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-image: url("assets/gemini\ imagem.png");
 
-        background-size: cover;
-        background-position: auto;
-        background-attachment:fixed;
-        background-repeat: no-repeat;
+    background-size: cover;
+    background-position: auto;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
     }   
     
 /*personalizando o texto*/
 
 
-
+.meu-logo {
+    position: absolute; 
+    top: 20px;         
+    left: 20px;    
+    width: 600px;      
+    height: auto;       
+    z-index: 1000;      
+}
 p {
     background-color: rgba(0, 0, 0, 0.4); 
     color: #ffffff; 
