@@ -1,8 +1,54 @@
-/* resert do navegador */
-
-
-* { margin: 0;
+* { 
+    margin: 0;
     padding: 0;
-    box-sizing: border-boxer;
+    box-sizing: border-box;
 }
 
+body.vitrine {
+    background: #0d0016 url("assets/alien-fundo.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: sans-serif;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+article {
+    position: absolute;
+    width: 220px;
+    text-align: center;
+}
+
+.p1 { top: 32%; left: 16%; }
+.p2 { top: 32%; right: 16%; }
+.p3 { bottom: 20%; left: 50%; transform: translateX(-50%); }
+
+h3 {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-bottom: 10px;
+}
+
+span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #39FF14;
+    text-shadow: 0 0 10px #39FF14;
+    display: block;
+}
+
+article:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.p3:hover {
+    transform: translateX(-50%) scale(1.05);
+}
