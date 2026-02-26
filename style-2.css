@@ -1,11 +1,66 @@
 /* resert do navegador */
 
 
-* { margin: 0;
+* { margin: 20px;
     padding: 0;
     box-sizing: border-boxer;
 }
 
-image {
-    display: block;
+   body{
+        line-height: 1;
+        padding: 30px;
+        font-family: Arial, sans-serif;
+        background-image: url("assets/gemini\ imagem.png");
+
+        background-size: cover;
+        background-position: auto;
+        background-attachment:fixed;
+        background-repeat: no-repeat;
+    }   
+    
+/*personalizando o texto*/
+
+
+
+p {
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: #ffffff; 
+    margin: 400px 300px;
+    padding: 15px; 
+    border-radius: 8px; 
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+
+.fundo-escuro-hex {
+    /* #000000 é preto, e '66' no final representa cerca de 40% de opacidade */
+    background-color: #00000066; 
+    color: white;
+}
+
+/*centralizando o botão*/
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 5vh;           
+}
+
+button a {
+    text-decoration: none;
+    color: #39FF14;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    height: 10px;
+}
+
+button:hover {
+    background: #39FF14;
+    box-shadow: 0 0 20px #39FF14, 0 0 60px #39FF14;
+}
+
+button:hover a {
+    color: darkolivegreen;
 }
