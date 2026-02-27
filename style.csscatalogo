@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* O contêiner principal do catálogo */
+.catalogo {
+  display: grid;
+  /* Cria colunas responsivas: os cartões terão no mínimo 250px e vão se expandir para preencher o espaço */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; /* Espaço entre os cartões */
+  max-width: 1200px; /* Largura máxima do catálogo */
+  margin: 0 auto; /* Centraliza o catálogo na tela */
+}
+
+/* Estilo individual de cada cartão */
+.cartao {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 15px;
+  text-align: center; /* Centraliza o texto e a imagem */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+}
+
+/* Estilo das imagens pequenas */
+.cartao img {
+  width: 100%; /* A imagem preenche a largura do cartão */
+  height: 200px; /* Altura fixa para manter todas iguais */
+  object-fit: cover; /* Corta a imagem sem distorcer para caber no espaço */
+  border-radius: 4px;
+}
+
+/* Estilo do título abaixo da imagem */
+.cartao h3 {
+  margin: 15px 0 10px 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Estilo da descrição */
+.cartao p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}

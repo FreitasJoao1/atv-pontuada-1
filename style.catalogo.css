@@ -1,0 +1,119 @@
+/* Configuração geral da página (opcional, apenas para centralizar) */
+body {
+  font-family: Arial, sans-serif;
+  margin: 50px;
+  padding: 20px 300px;
+  background-image: url('assets/fundo\ pg3.png'); /* Supondo que a imagem de fundo esteja na pasta assets */
+  background-position: auto;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.meu-logo {
+    position: absolute; 
+    top: 20px;         
+    left: 20px;    
+    width: 600px;      
+    height: auto;       
+    z-index: 1000; 
+}
+/* O contêiner principal do catálogo */
+.catalogo {
+  display: grid;
+  /* Cria colunas responsivas: os cartões terão no mínimo 250px e vão se expandir para preencher o espaço */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Espaço entre os cartões */;
+  gap: 50px 20px;
+  max-width: 1000px; /* Largura máxima do catálogo */
+  margin: 0 auto; /* Centraliza o catálogo na tela */
+}
+
+.cartao {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #4b833d; /* Recomendo fundo preto para o neon destacar */
+  
+  /* Borda sutil de cor neon, mas "apagada" (opacity 0.2 ou 0.3) */
+  border: 2px solid rgba(0, 255, 0, 0.3); /* Exemplo: Neon verde apagado */
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out, border-color 0.3s ease-in-out; /* Transições suaves para sombra, transformação e cor da borda */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  
+  /* Oculta o transbordo da imagem quando ela aumentar (efeito de relevo) */
+  overflow: hidden; 
+}
+
+/* Estilo do cartão QUANDO O MOUSE ESTIVER EM CIMA (.cartao:hover) */
+.cartao:hover {
+  /* Ativa a cor neon vibrante na borda */
+  border-color: rgba(0, 255, 0, 1); 
+  
+  /* EFEITO NEON: Aplica múltiplas camadas de box-shadow para o brilho */
+  /* Camada 1: Brilho interno sutil */
+  /* Camada 2: Brilho externo suave */
+  /* Camada 3 e 4: Brilhos externos mais fortes e espalhados */
+  box-shadow: 
+    inset 0 0 10px rgba(0, 255, 0, 0.5), /* Interno */
+    0 0 10px rgba(0, 255, 0, 0.7),     /* Externo próximo */
+    0 0 20px rgba(0, 255, 0, 0.6),     /* Externo médio */
+    0 0 30px rgba(0, 255, 0, 0.4);     /* Externo difuso */
+.cartao img {
+  width: 100%;
+  height: 150px; /* Reduzi a altura da imagem um pouco, já que os cartões ficarão mais estreitos */
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cartao h3 {
+  margin: 15px 0 10px 0;
+  font-size: 1.1rem; /* Fonte levemente menor para caber melhor */
+  color: #070707;
+}
+
+
+}
+
+/* O "Pulo do Gato" para alinhar tudo igual */
+.cartao p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #000000;
+  line-height: 1.5;
+  flex-grow: 1; /* Se um cartão for mais alto por causa de outro texto, este parágrafo estica, mantendo a base alinhada */
+}
+
+button a {
+    text-decoration: none;
+    color: #39FF14;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    height: 10px;
+}
+
+button:hover {
+    background: #39FF14;
+    box-shadow: 0 0 20px #39FF14, 0 0 60px #39FF14;
+}
+
+button:hover a {
+    color: darkolivegreen;
+}
+
+/* Para tablets (telas menores que 1024px) - Muda para 3 colunas */
+@media (max-width: 1024px) {
+  .catalogo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Para celulares (telas menores que 600px) - Muda para 2 ou 1 coluna */
+@media (max-width: 600px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr); /* ou repeat(1, 1fr) se quiser 1 por linha */
+  }
+}
