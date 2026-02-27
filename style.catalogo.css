@@ -1,9 +1,14 @@
+/* Efeito de rolagem suave (O Pulo do Gato para a mesma página) */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Configuração geral da página (opcional, apenas para centralizar) */
 body {
   font-family: Arial, sans-serif;
   margin: 50px;
-  padding: 20px 300px;
-  background-image: url('assets/fundo\ pg3.png'); /* Supondo que a imagem de fundo esteja na pasta assets */
+  padding: 20px 10%; /* Ajustado para não quebrar a tela em dispositivos menores */
+  background-image: url('assets/fundo pg3.png'); /* Supondo que a imagem de fundo esteja na pasta assets */
   background-position: auto;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -19,12 +24,33 @@ body {
     z-index: 1000; 
 }
 /* O contêiner principal do catálogo */
+/* O contêiner em volta da logo */
+.area-logo {
+  width: 100%;
+  text-align: center; 
+  padding-top: 30px; /* Um respiro no topo da página */
+  
+  /* Esse é o espaço que vai empurrar os cartões para baixo e separá-los da logo */
+  margin-bottom: 80px; 
+}
+
+/* A imagem da logo em si */
+.imagem-logo {
+  display: block; 
+  margin: 0 auto; /* Centraliza a imagem */
+  
+  /* A MÁGICA DA PROPORÇÃO ACONTECE AQUI: */
+  width: 90%; /* Em celulares, ela ocupa quase a tela toda... */
+  max-width: 350px; /* ...mas em computadores, ela NUNCA passa de 450px de largura! */
+  
+  height: auto; /* Mantém a imagem sem achatar ou esticar */
+}
+
 .catalogo {
   display: grid;
   /* Cria colunas responsivas: os cartões terão no mínimo 250px e vão se expandir para preencher o espaço */
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px; /* Espaço entre os cartões */;
-  gap: 50px 20px;
+  gap: 50px 20px; /* Espaço entre os cartões */
   max-width: 1000px; /* Largura máxima do catálogo */
   margin: 0 auto; /* Centraliza o catálogo na tela */
 }
@@ -50,17 +76,19 @@ body {
 /* Estilo do cartão QUANDO O MOUSE ESTIVER EM CIMA (.cartao:hover) */
 .cartao:hover {
   /* Ativa a cor neon vibrante na borda */
-  border-color: rgba(0, 255, 0, 1); 
+  border-color: rgba(57, 255, 20, 1); 
   
   /* EFEITO NEON: Aplica múltiplas camadas de box-shadow para o brilho */
   /* Camada 1: Brilho interno sutil */
   /* Camada 2: Brilho externo suave */
   /* Camada 3 e 4: Brilhos externos mais fortes e espalhados */
   box-shadow: 
-    inset 0 0 10px rgba(0, 255, 0, 0.5), /* Interno */
-    0 0 10px rgba(0, 255, 0, 0.7),     /* Externo próximo */
-    0 0 20px rgba(0, 255, 0, 0.6),     /* Externo médio */
-    0 0 30px rgba(0, 255, 0, 0.4);     /* Externo difuso */
+    inset 0 0 10px rgba(57, 255, 20, 0.5), 
+    0 0 10px rgba(57, 255, 20, 0.7),     
+    0 0 20px rgba(57, 255, 20, 0.6),     
+    0 0 30px rgba(57, 255, 20, 0.4);     
+}
+
 .cartao img {
   width: 100%;
   height: 150px; /* Reduzi a altura da imagem um pouco, já que os cartões ficarão mais estreitos */
@@ -74,9 +102,6 @@ body {
   color: #070707;
 }
 
-
-}
-
 /* O "Pulo do Gato" para alinhar tudo igual */
 .cartao p {
   margin: 0;
@@ -86,13 +111,67 @@ body {
   flex-grow: 1; /* Se um cartão for mais alto por causa de outro texto, este parágrafo estica, mantendo a base alinhada */
 }
 
+/* ------------------------------------- */
+/* ESTILO DAS HISTÓRIAS NA MESMA PÁGINA  */
+/* ------------------------------------- */
+
+.detalhe-historia {
+    padding: 60px 20px;
+    margin-bottom: 50px;
+    background: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente para não brigar com a foto de fundo */
+    border-radius: 20px;
+    border: 1px solid #39FF14;
+    color: white;
+    text-align: center;
+}
+
+.detalhe-historia h2 { color: #39FF14; margin-bottom: 20px; font-size: 1.8rem; }
+
+.detalhe-historia p { line-height: 1.8; font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px auto; }
+
+.link-clipe {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #39FF14;
+    color: darkolivegreen;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.link-clipe:hover {
+    box-shadow: 0 0 15px #39FF14;
+    transform: scale(1.05);
+}
+
+.voltar-topo {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.voltar-topo:hover { color: white; }
+
+/* ------------------------------------- */
+/* ESTILO DOS BOTÕES INFERIORES          */
+/* ------------------------------------- */
+
+button {
+    background: black; /* Adicionado fundo preto para leitura */
+    border: 2px solid #39FF14;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+}
+
 button a {
     text-decoration: none;
     color: #39FF14;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Reduzido levemente */
     text-transform: uppercase;
-    height: 10px;
 }
 
 button:hover {
